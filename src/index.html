@@ -45,16 +45,19 @@
 			function create() {
 				game.add.sprite(0, 0, 'sky');
 				cloud = game.add.sprite(0, 0, 'cloud1');
-				road = game.add.sprite(0, 0, 'road');
+				//road = game.add.sprite(0, 0, 'road');
 			//	game.physics.arcade.enable(cloud);
 			//	cloud.loop = true;
 			//	cloud.body.bounce.x = 1.2;
 			//	cloud.body.gravity.x = 300;
 				//cloud.body.collideWorldBounds = true;
+				roadtile = game.add.tileSprite(0, 0, game.stage.bounds.width, game.cache.getImage('road').height, 'road');
 				
 			}
 
 			function update() {
+				
+				roadtile.tilePosition.x -= 1;
 				
 				cloud.x = cloud.x + 10;
 				
@@ -63,12 +66,12 @@
 					cloud.x = -cloud.width;
 				}
 				
-				road.x = road.x + 10;
-				
-				if (road.x > game.stage.bounds.width + road.width)
-				{
-					road.x = -road.width;
-				}
+				// road.x = road.x + 10;
+// 				
+				// if (road.x > game.stage.bounds.width + road.width)
+				// {
+					// road.x = -road.width;
+				// }
 				
 			}
 
