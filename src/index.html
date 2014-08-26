@@ -40,8 +40,11 @@
 				game.load.image('sky', 'img/sky.png');
 				game.load.image('cloud1', 'img/cloud1.png');
 				game.load.image('road', 'img/road.png');
+				game.load.image('bg', 'img/bg.png');
 			}
-
+			
+			var roadtile;
+			
 			function create() {
 				game.add.sprite(0, 0, 'sky');
 				cloud = game.add.sprite(0, 0, 'cloud1');
@@ -51,13 +54,16 @@
 			//	cloud.body.bounce.x = 1.2;
 			//	cloud.body.gravity.x = 300;
 				//cloud.body.collideWorldBounds = true;
+				bgtile = game.add.tileSprite(0, 0, game.stage.bounds.width, game.cache.getImage('bg').height, 'bg');
 				roadtile = game.add.tileSprite(0, 0, game.stage.bounds.width, game.cache.getImage('road').height, 'road');
+				
 				
 			}
 
 			function update() {
 				
 				roadtile.tilePosition.x -= 1;
+				bgtile.tilePosition.x -= 0.5;
 				
 				cloud.x = cloud.x + 10;
 				
