@@ -16,6 +16,23 @@
 		<style type="text/css">
 			body {
 				margin: 0;
+				background-color: #000;
+			}
+
+			#contain {
+				height: 75%;
+			}
+
+			#wrap {
+				width: 1317px;
+				height: 75%;
+				margin: 0 auto;
+				text-align: center;
+			}
+
+			.yabadaba {
+				color: #FFF;
+				text-align: center;
 			}
 		</style>
 	</head>
@@ -25,68 +42,83 @@
 		<![endif]-->
 
 		<!-- Add your site or application content here -->
-		<p>
-			OpenHackSTC Game
-		</p>
 
-		<script type="text/javascript">
-			var game = new Phaser.Game(1317, 800, Phaser.AUTO, '', {
-				preload : preload,
-				create : create,
-				update : update
-			});
+		<div id="contain">
+			<p class="yabadaba">
+				OpenHackSTC Game
+			</p>
+			<div id="wrap"></div>
 
-			function preload() {
-				game.load.image('sky', 'img/sky.png');
-				game.load.image('cloud1', 'img/cloud1.png');
-				game.load.image('buildings', 'img/buildings.png');
-				game.load.image('road', 'img/road.png');
-				game.load.image('bg', 'img/bg.png');
-				game.load.image('logo', 'img/openhackstc.png');
-			}
-			
-			var roadtile;
-			
-			function create() {
-				game.add.sprite(0, 0, 'sky');
-				game.add.sprite(800, 0, 'logo');
-				cloud = game.add.sprite(0, 0, 'cloud1');
-				//road = game.add.sprite(0, 0, 'road');
-			//	game.physics.arcade.enable(cloud);
-			//	cloud.loop = true;
-			//	cloud.body.bounce.x = 1.2;
-			//	cloud.body.gravity.x = 300;
-				//cloud.body.collideWorldBounds = true;
-				bgtile = game.add.tileSprite(0, 0, game.stage.bounds.width, game.cache.getImage('bg').height, 'bg');
-				buildingtile = game.add.tileSprite(0, 0, game.stage.bounds.width, game.cache.getImage('buildings').height, 'buildings');
-				roadtile = game.add.tileSprite(0, 0, game.stage.bounds.width, game.cache.getImage('road').height, 'road');
-				
-				
-			}
+			<script type="text/javascript">
+				var game = new Phaser.Game(1317, 800, Phaser.AUTO, 'wrap', {
+					preload : preload,
+					create : create,
+					update : update
+				});
 
-			function update() {
-				
-				buildingtile.tilePosition.x -= 1;
-				roadtile.tilePosition.x -= 1;
-				bgtile.tilePosition.x -= 0.5;
-				
-				cloud.x = cloud.x + 10;
-				
-				if (cloud.x > game.stage.bounds.width + cloud.width)
-				{
-					cloud.x = -cloud.width;
+				function preload() {
+					game.load.image('sky', 'img/sky.png');
+					game.load.image('cloud1', 'img/cloud1.png');
+					game.load.image('buildings', 'img/buildings.png');
+					game.load.image('road', 'img/road.png');
+					game.load.image('bg', 'img/bg.png');
+					game.load.image('logo', 'img/openhackstc.png');
+					game.load.image('truck', 'img/truck.png');
+					game.load.image('car', 'img/car.png');
 				}
-				
-				// road.x = road.x + 10;
-// 				
-				// if (road.x > game.stage.bounds.width + road.width)
-				// {
-					// road.x = -road.width;
-				// }
-				
-			}
 
-		</script>
+				var roadtile;
+
+				function create() {
+					game.add.sprite(0, 0, 'sky');
+					game.add.sprite(800, 0, 'logo');
+					cloud = game.add.sprite(0, 0, 'cloud1');
+					//road = game.add.sprite(0, 0, 'road');
+					//	game.physics.arcade.enable(cloud);
+					//	cloud.loop = true;
+					//	cloud.body.bounce.x = 1.2;
+					//	cloud.body.gravity.x = 300;
+					//cloud.body.collideWorldBounds = true;
+					bgtile = game.add.tileSprite(0, 0, game.stage.bounds.width, game.cache.getImage('bg').height, 'bg');
+					buildingtile = game.add.tileSprite(0, 0, game.stage.bounds.width, game.cache.getImage('buildings').height, 'buildings');
+					roadtile = game.add.tileSprite(0, 0, game.stage.bounds.width, game.cache.getImage('road').height, 'road');
+					
+					car = game.add.sprite(400, 620, 'car');
+					
+					truck = game.add.sprite(1317, 580, 'truck');
+
+				}
+
+				function update() {
+
+					buildingtile.tilePosition.x -= 1;
+					roadtile.tilePosition.x -= 1;
+					bgtile.tilePosition.x -= 0.5;
+
+					cloud.x = cloud.x + 10;
+
+					if (cloud.x > game.stage.bounds.width + cloud.width) {
+						cloud.x = -cloud.width;
+					};
+
+					truck.x = truck.x - 11;
+
+					if (truck.x > game.stage.bounds.width + truck.width) {
+						truck.x = -truck.width;
+					};
+
+					// road.x = road.x + 10;
+					//
+					// if (road.x > game.stage.bounds.width + road.width)
+					// {
+					// road.x = -road.width;
+					// }
+
+				}
+
+			</script>
+
+		</div>
 
 		<script src="//ajax.googleapis.com/ajax/libs/jquery/{{JQUERY_VERSION}}/jquery.min.js"></script>
 		<script>
