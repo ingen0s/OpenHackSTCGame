@@ -42,12 +42,14 @@
 				game.load.image('buildings', 'img/buildings.png');
 				game.load.image('road', 'img/road.png');
 				game.load.image('bg', 'img/bg.png');
+				game.load.image('logo', 'img/openhackstc.png');
 			}
 			
 			var roadtile;
 			
 			function create() {
 				game.add.sprite(0, 0, 'sky');
+				game.add.sprite(800, 0, 'logo');
 				cloud = game.add.sprite(0, 0, 'cloud1');
 				//road = game.add.sprite(0, 0, 'road');
 			//	game.physics.arcade.enable(cloud);
