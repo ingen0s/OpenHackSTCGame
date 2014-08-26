@@ -82,9 +82,9 @@
 					bgtile = game.add.tileSprite(0, 0, game.stage.bounds.width, game.cache.getImage('bg').height, 'bg');
 					buildingtile = game.add.tileSprite(0, 0, game.stage.bounds.width, game.cache.getImage('buildings').height, 'buildings');
 					roadtile = game.add.tileSprite(0, 0, game.stage.bounds.width, game.cache.getImage('road').height, 'road');
-					
+
 					car = game.add.sprite(400, 620, 'car');
-					
+
 					truck = game.add.sprite(1317, 580, 'truck');
 
 				}
@@ -101,11 +101,13 @@
 						cloud.x = -cloud.width;
 					};
 
-					truck.x = truck.x - 11;
+					truck.x = truck.x - 7;
 
-					if (truck.x > game.stage.bounds.width + truck.width) {
-						truck.x = -truck.width;
-					};
+					//truck.x -= 2;
+
+					if (truck.x < -truck.width) {
+						truck.x = game.world.width;
+					}
 
 					// road.x = road.x + 10;
 					//
